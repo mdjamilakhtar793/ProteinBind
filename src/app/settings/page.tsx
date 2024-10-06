@@ -1,12 +1,12 @@
 "use client";
 import Breadcrumb from "@/components/ComponentHeader/ComponentHeader";
 import Image from "next/image";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { Edit, MailIcon, CameraIcon, User } from "lucide-react";
 import { useSession } from "next-auth/react";
 import React, { useState, useEffect } from "react";
 import { getUserByEmail, updateUser } from "@/lib/actions/user.actions";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 const Settings = () => {
   const { data: session } = useSession();

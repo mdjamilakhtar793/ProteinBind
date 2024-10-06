@@ -1,19 +1,16 @@
-import Index from "@/components/Dashboard";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
+import Image from "next/image";
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
+import Index from "@/components/Dashboard";
 
 export const metadata: Metadata = {
-  title:
-    "Next.js E-commerce Dashboard | TailAdmin - Next.js Dashboard Template",
-  description: "This is Next.js Home for TailAdmin Dashboard Template",
+  title: "Protien Bind a leading research platform for drugs discovery",
+  description: "this is a medical purpose uses",
 };
-
 export default function Home() {
   return (
-    <>
-      <DefaultLayout>
-        <Index />
-      </DefaultLayout>
-    </>
+    <DefaultLayout>
+      <Index />
+    </DefaultLayout>
   );
 }

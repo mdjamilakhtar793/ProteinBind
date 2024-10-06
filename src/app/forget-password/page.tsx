@@ -4,10 +4,10 @@ import {
   getUserByEmail,
   requestPasswordReset,
 } from "@/lib/actions/user.actions";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { useRouter } from "next/navigation";
 import { MailIcon } from "lucide-react";
 import { useSession } from "next-auth/react";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 const ForgetPasswordPage: React.FC = () => {
   const [email, setEmail] = useState("");

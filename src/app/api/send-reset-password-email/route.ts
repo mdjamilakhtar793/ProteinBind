@@ -1,4 +1,4 @@
-import { ResetPasswordTemplate } from "@/components/EmailTemplates/reset-email";
+import { ResetPasswordTemplate } from "@/components/EmailTemplates/reset.email";
 import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_KEY);
 

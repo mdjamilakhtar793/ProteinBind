@@ -25,7 +25,7 @@ export async function createUser(user: CreateUserParams) {
       userBio: user.userBio || "",
     });
 
-    const verificationUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/verify-email?token=${newUser._id}`;
+    const verificationUrl = `${process.env.NEXTAUTH_URL}/verify-email?token=${newUser._id}`;
     await sendVerificationEmail(
       newUser.email,
       newUser.firstName || "User",
@@ -80,7 +80,7 @@ export async function requestPasswordReset(email: string) {
 
     const user = await User.findOne({ email });
     if (!user) throw new Error("User not found");
-    const resetUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/reset-password?token=${user._id}`;
+    const resetUrl = `${process.env.NEXTAUTH_URL}/reset-password?token=${user._id}`;
     await sendResetPasswordEmail(
       user.email,
       user.firstName || "User",

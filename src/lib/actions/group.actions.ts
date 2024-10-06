@@ -1,6 +1,6 @@
 "use server";
 import mongoose from "mongoose";
-import Group from "../database/models/group.model";
+import Group from "../database/models/group.models";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 

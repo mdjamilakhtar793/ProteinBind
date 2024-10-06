@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import MoleculeStructure from "../MoleculeStructure/index";
+import React, { useEffect, useState } from "react";
+import MoleculeStructure from "../MoleculeStructure";
 
 const moleculeBank = [
   {
@@ -65,7 +65,7 @@ const moleculeBank = [
   },
 ];
 
-const TableOne = () => {
+const MoleculeBankTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredMolecules, setFilteredMolecules] = useState(moleculeBank);
 
@@ -75,7 +75,6 @@ const TableOne = () => {
     );
     setFilteredMolecules(filteredData);
   }, [searchQuery]);
-
   return (
     <div className="rounded-lg border border-stroke bg-white px-5 pb-2.5 pt-6 shadow-default dark:border-[#181818] dark:bg-[#181818] sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
@@ -155,4 +154,4 @@ const TableOne = () => {
   );
 };
 
-export default TableOne;
+export default MoleculeBankTable;

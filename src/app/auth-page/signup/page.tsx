@@ -3,7 +3,6 @@ import React, { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ComponentHeader from "@/components/ComponentHeader/ComponentHeader";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { createUser } from "@/lib/actions/user.actions";
 import {
   CameraIcon,
@@ -12,6 +11,7 @@ import {
   MailIcon,
   UserIcon,
 } from "lucide-react";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 const SignUp: React.FC = () => {
   const [user, setUser] = useState({
@@ -150,7 +150,7 @@ const SignUp: React.FC = () => {
                     />
                   </div>
                   <p className="text-xl font-semibold text-black">
-                    ProteinBind
+                    MedResearch
                   </p>
                 </div>
               </Link>
@@ -361,6 +361,7 @@ const SignUp: React.FC = () => {
                       value={user.password}
                       onChange={handleInputChange}
                       placeholder="Enter your password"
+                      autoComplete="on"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 

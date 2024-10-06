@@ -1,6 +1,5 @@
 "use client";
 import Breadcrumb from "@/components/ComponentHeader/ComponentHeader";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import MoleculeStructure from "../../components/MoleculeStructure/index";
 import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
@@ -9,6 +8,7 @@ import {
   getMoleculeGenerationHistoryByUser,
 } from "@/lib/actions/molecule-generation.action";
 import { getUserByEmail } from "@/lib/actions/user.actions";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 const ModalLayout = () => {
   const { data: session } = useSession();
@@ -48,7 +48,7 @@ const ModalLayout = () => {
     setLoading(true);
 
     const API_KEY =
-      "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";
+      "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";
 
     const invokeUrl =
       "https://health.api.nvidia.com/v1/biology/nvidia/molmim/generate";

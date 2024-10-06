@@ -3,12 +3,12 @@ import "jsvectormap/dist/jsvectormap.css";
 import "flatpickr/dist/flatpickr.min.css";
 import "@/css/style.css";
 import React, { useEffect, useState } from "react";
-import Loader from "@/components/common/Loader";
 
 import * as Ably from "ably";
 import { AblyProvider, ChannelProvider } from "ably/react";
 import { SessionProvider } from "next-auth/react";
 import { UserProvider } from "@/app/context/UserContext";
+import Loader from "@/components/common/Loader";
 
 export default function RootLayout({
   children,

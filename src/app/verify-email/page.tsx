@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { verifyEmail } from "@/lib/actions/user.actions";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { CircleCheckBig } from "lucide-react";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 const VerifyEmailPage: React.FC = () => {
   const [status, setStatus] = useState<"loading" | "success" | "error">(

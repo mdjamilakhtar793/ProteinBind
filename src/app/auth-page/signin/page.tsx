@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { LoaderCircle, LockIcon, MailIcon } from "lucide-react";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import ComponentHeader from "@/components/ComponentHeader/ComponentHeader";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState("");

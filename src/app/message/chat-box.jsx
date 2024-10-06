@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useChannel } from "ably/react";
 import { useAbly } from "ably/react";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { SendIcon } from "lucide-react";
 import { useUser } from "../context/UserContext";
 import { resizeBase64Img } from "@/lib/utils";
@@ -13,6 +12,7 @@ import {
 } from "@/lib/actions/group.actions";
 import { getUserByEmail } from "@/lib/actions/user.actions";
 import { useSession } from "next-auth/react";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 function ChatBox() {
   const ably = useAbly();

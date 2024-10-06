@@ -4,7 +4,7 @@ export async function sendVerificationEmail(
   verificationUrl: string,
 ) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/send-verification-email`,
+    `${process.env.NEXTAUTH_URL}/api/send-verification-email`,
     {
       method: "POST",
       headers: {

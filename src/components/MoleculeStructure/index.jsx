@@ -1,4 +1,3 @@
-"use client";
 import React, { Component } from "react";
 import _ from "lodash";
 import PropTypes from "prop-types";
@@ -6,7 +5,15 @@ import initRDKitModule from "@rdkit/rdkit";
 
 const initRDKit = (() => {
   let rdkitLoadingPromise;
+
   return () => {
+    /**
+     * Utility function ensuring there's only one call made to load RDKit
+     * It returns a promise with the resolved RDKit API as value on success,
+     * and a rejected promise with the error on failure.
+     *
+     * The RDKit API is also attached to the global object on successful load.
+     */
     if (!rdkitLoadingPromise) {
       rdkitLoadingPromise = new Promise((resolve, reject) => {
         initRDKitModule()
@@ -14,26 +21,32 @@ const initRDKit = (() => {
             resolve(RDKit);
           })
           .catch((e) => {
-            reject(e);
+            reject();
           });
       });
     }
+
     return rdkitLoadingPromise;
   };
 })();
 
 class MoleculeStructure extends Component {
   static propTypes = {
+    /**
+     * Generic properties
+     */
     id: PropTypes.string.isRequired,
     className: PropTypes.string,
     svgMode: PropTypes.bool,
     width: PropTypes.number,
     height: PropTypes.number,
+    /**
+     * RDKit-specific properties
+     */
     structure: PropTypes.string.isRequired,
     subStructure: PropTypes.string,
     extraDetails: PropTypes.object,
     drawingDelay: PropTypes.number,
-    scores: PropTypes.number,
   };
 
   static defaultProps = {
@@ -44,7 +57,6 @@ class MoleculeStructure extends Component {
     svgMode: false,
     extraDetails: {},
     drawingDelay: undefined,
-    scores: 0,
   };
 
   constructor(props) {
@@ -99,6 +111,10 @@ class MoleculeStructure extends Component {
       mol.draw_to_canvas_with_highlights(canvas, this.getMolDetails(mol, qmol));
     }
 
+    /**
+     * Delete C++ mol objects manually
+     * https://emscripten.org/docs/porting/connecting_cpp_and_javascript/embind.html#memory-management
+     */
     mol?.delete();
     qmol?.delete();
   }
@@ -178,7 +194,6 @@ class MoleculeStructure extends Component {
   }
 
   render() {
-    console.log("props score number:", this.props.scores);
     if (this.state.rdKitError) {
       return "Error loading renderer.";
     }
@@ -218,13 +233,6 @@ class MoleculeStructure extends Component {
             width={this.props.width}
             height={this.props.height}
           ></canvas>
-          {this.props.scores ? (
-            <p className="text-red-600 z-50 p-10">
-              Score: {this.props.scores.toFixed(2)}
-            </p>
-          ) : (
-            ""
-          )}
         </div>
       );
     }

@@ -1,8 +1,8 @@
 "use client";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import MoleculeStructure from "@/components/MoleculeStructure";
 import { useState } from "react";
 import { Search } from "lucide-react";
+import DefaultLayout from "@/components/Layouts/DefaultLayouts";
 
 export default function PubChem() {
   const [compoundName, setCompoundName] = useState("");
@@ -171,13 +171,13 @@ export default function PubChem() {
               <p>
                 <strong className="text-gray-600 dark:text-gray-300">
                   Complexity:
-                </strong>{" "}
+                </strong>
                 {compoundData.Complexity}
               </p>
               <p>
                 <strong className="text-gray-600 dark:text-gray-300">
                   Charge:
-                </strong>{" "}
+                </strong>
                 {compoundData.Charge}
               </p>
             </div>
